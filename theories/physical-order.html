@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>物理秩序演进理论</title>
+    <!-- 共用样式 -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <!-- 头部（复用首页头部结构） -->
+    <header class="header">
+        <div class="container">
+            <div class="logo"><a href="../index.html">秩序演进理论体系</a></div>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link">首页</a>
+                <a href="#" class="nav-link active">物理秩序演进理论</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="theory-layout">
+                <!-- 侧边栏章节列表 -->
+                <aside class="sidebar">
+                    <div class="chapter-nav">
+                        <h3 class="chapter-nav__title">
+                            物理秩序演进理论
+                            <select id="version-select" style="margin-left: 10px; padding: 4px;"></select>
+                        </h3>
+                        <ul class="chapter-nav__list" id="chapter-list"></ul>
+                    </div>
+                </aside>
+
+                <!-- 内容区域（Markdown渲染后插入此处） -->
+                <article class="content" id="content-container"></article>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>秩序演进理论体系 © 2025</p>
+        </div>
+    </footer>
+
+    <!-- Markdown渲染插件 -->
+    <script src="../js/markdown-it.min.js"></script>
+    <!-- 通用逻辑 -->
+    <script src="../js/common.js"></script>
+    <script>
+        // 1. 理论配置（仅当前页面需修改：定义版本和章节结构）
+        const physicalOrderConfig = {
+            title: "物理秩序演进理论",
+            versions: {
+                "1.0": {
+                    chapters: [
+                        { id: "intro", title: "引言：从混沌到秩序" },
+                        { id: "thermodynamics", title: "热力学视角" }
+                    ]
+                },
+                "2.0": {
+                    chapters: [
+                        { id: "intro", title: "引言：从混沌到秩序" },
+                        { id: "core-concepts", title: "核心概念：耗散结构与自组织" },
+                        { id: "mathematical-framework", title: "数学框架：非线性动力学与分岔理论" }
+                    ]
+                }
+            }
+        };
+
+        // 2. 初始Markdown内容（可直接替换此对象更新内容，无需修改其他代码）
+        const physicalOrderMd = {
+            "1.0": {
+                intro: `# 引言：从混沌到秩序
+物理秩序演进理论旨在探索宇宙中秩序如何从混沌中自发产生，以及这种秩序如何随着时间的推移而演化。这一理论不仅关乎物理世界的基本规律，也为我们理解更复杂系统的演化提供了基础框架。
+
+在传统物理学中，热力学第二定律似乎暗示着宇宙整体趋向于无序（熵增）。然而，我们观察到的世界却充满了结构和秩序——从晶体的形成到星系的诞生，从生命的出现到文明的发展。物理秩序演进理论试图解释这一看似矛盾的现象。`,
+                thermodynamics: `# 热力学视角下的秩序
+从热力学的角度看，秩序的形成似乎与熵增原理相矛盾。然而，这一矛盾可以通过开放系统的概念来解决。
+
+开放系统通过与外界交换物质和能量，可以在局部区域形成有序结构，同时保持整体的熵增。这为理解物理世界中的各种自组织现象提供了理论基础。`
+            },
+            "2.0": {
+                intro: `# 引言：从混沌到秩序
+物理秩序演进理论旨在探索宇宙中秩序如何从混沌中自发产生，以及这种秩序如何随着时间的推移而演化。这一理论不仅关乎物理世界的基本规律，也为我们理解更复杂系统的演化提供了基础框架。
+
+本理论的核心观点是：在开放系统中，能量流可以驱动局部区域形成并维持高度有序的结构，同时遵循热力学第二定律。这种"耗散结构"的形成和演化，构成了物理秩序演进的基础。`,
+                "core-concepts": `# 核心概念：耗散结构与自组织
+物理秩序演进理论的核心是**耗散结构**（Dissipative Structure）概念，由比利时物理学家伊利亚·普里戈金（Ilya Prigogine）于20世纪60年代提出。耗散结构是指在远离热力学平衡态的开放系统中，通过与外界交换物质和能量而形成的一种时空有序结构。
+
+## 耗散结构的形成条件
+1. **开放系统**：系统必须与外界交换物质和能量。
+2. **远离平衡态**：系统必须远离热力学平衡态。
+3. **非线性相互作用**：系统内部的组成部分之间存在非线性相互作用。
+4. **涨落放大**：系统中的随机涨落能够被放大，从而导致新结构的形成。`,
+                "mathematical-framework": `# 数学框架：非线性动力学与分岔理论
+物理秩序演进理论的数学基础主要包括**非线性动力学**和**分岔理论**（Bifurcation Theory）。
+
+## 反应-扩散方程
+描述耗散结构形成的基本方程是反应-扩散方程：
+$$\\frac{\\partial u}{\\partial t} = D \\nabla^2 u + f(u, v, \\lambda)$$
+$$\\frac{\\partial v}{\\partial t} = D' \\nabla^2 v + g(u, v, \\lambda)$$
+其中，$u$ 和 $v$ 是系统的状态变量，$D$ 和 $D'$ 是扩散系数，$f$ 和 $g$ 是非线性反应项，$\\lambda$ 是控制参数。`
+            }
+        };
+
+        // 3. 初始化页面
+        markdownContent = physicalOrderMd; // 赋值给全局Markdown内容对象
+        initPage(physicalOrderConfig);
+    </script>
+</body>
+</html>
